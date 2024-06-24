@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D´ Guster</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="app_bar">
+        <a href="index.html">
+            <i class='bx bx-home'></i>
+        </a>
+        
+        <div class="app_logo">
+            <img src="assets/logo.png" alt="D'Guster logo marca">
+        </div>
+        <i class='bx bx-cart-alt'></i>
+    </header>
+
+    <main class="confirm_main">
+
+        <h1>Confirme seu pedido</h1>
+
+        <section class="order_items">
+
+            <div class="order_card">
+
+                <div class="card_image">
+                    <img id="item_image" src="assets/x-burger.jpg" alt="x-burger">
+                </div>
+
+                <div class="card_details">
+
+                    <h2 id="item_name"></h2>
+                    <h3 id="item_price"></h3>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>-->
+                </div>
+
+            </div>
+
+            <a href="" class="button_confirm" onclick="openWhatsApp()">
+                
+                <i class='bx bxl-whatsapp'></i>
+                Fazer pedido
+                
+            </a>
+
+        </section>
+        
+        
+
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const itemName = urlParams.get('name');
+        const itemPrice = urlParams.get('price');
+        const itemImage = urlParams.get('image');
+
+        const elementPrice = document.querySelector('#item_price');
+        const elementName = document.querySelector('#item_name');
+        const elementImage = document.querySelector('#item_image');
+        
+        elementPrice.textContent = 'R$ ' + itemPrice;
+        elementName.textContent = itemName;
+        elementImage.src = 'assets/' + itemImage;
+
+        function openWhatsApp() {
+            window.open('https://api.whatsapp.com/send?phone=5586995452550 ' + itemName);
+        }
+        
+    </script>
+
+</body>
+
+</html>

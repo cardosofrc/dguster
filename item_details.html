@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D´ Guster</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="header_details">
+        <img src="assets/x-burger.jpg" alt="X-Burger" class="image_item">
+        <div class="option_details">
+
+            <a href="index.html">
+                <div class="icon_option">
+                    <i class='bx bx-chevron-left'></i>
+                </div>
+            </a>
+
+            <div class="right_option">
+                <div class="icon_option">
+                    <i class='bx bx-heart'></i>
+                </div>
+                <div class="icon_option">
+                    <i class='bx bx-chat'></i>
+                </div>
+            </div>
+
+        </div>
+    </header><!-- header-details -->
+
+    <main class="main_details">
+        <h1 class="name_item">X-Burger</h1>
+
+        <section class="info_details">
+            <div class="item_rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <p>4.5 (2.500)</p>
+            </div>
+            <div class="description_detail">
+                <p class="description_p">
+                    <!--Descrição do js-->
+                </p>
+            </div>
+
+            <div class="galery_details">
+                <a class="galery_image" href="#image01">
+                    <img src="assets/x-burger.jpg" alt="x-burger">
+                </a>
+
+                <a href="#" class="lightbox" id="image01">
+                    <span style="
+                        background-image: url(assets/x-burger.jpg);">
+                        <p>Experimente também o nosso X-Burger</p>
+                    </span>
+                </a>
+
+                <a class="galery_image" href="3">
+                    <img src="assets/x-burger.jpg" alt="x-burger">
+                </a>
+            </div>
+            <div class="buy_item">
+                <p class="price_item">R$ 12.50</p>
+
+                <a onclick="openOrderConfirm()" class="option_detail">Comprar</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const itemName =urlParams.get('name');
+        const itemPrice =urlParams.get('price');
+        const itemImage =urlParams.get('image');
+        const itemDescription =urlParams.get('description');
+
+        const imageDetail = document.querySelector('.image_item');
+        const nameDetail = document.querySelector('.name_item');
+        const priceDetail = document.querySelector('.price_item');
+        const descriptionDetail = document.querySelector('.description_p');
+
+        nameDetail.textContent = itemName;
+        priceDetail.textContent = itemPrice;
+        imageDetail.src = 'assets/' + itemImage;
+        descriptionDetail.textContent = itemDescription;
+
+        function openOrderConfirm() {
+            window.open('confirm_order.html?name=' + itemName +
+            '&price=' + itemPrice +
+            '&image=' + itemImage, '_self')
+        }
+
+    </script>
+
+</body>
+
+</html>
